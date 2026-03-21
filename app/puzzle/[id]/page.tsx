@@ -133,7 +133,7 @@ export default function PuzzleSolvePage({ params }: { params: Promise<{ id: stri
           )}
 
           {/* 바둑판 */}
-          <div className="shadow-xl rounded-xl overflow-hidden">
+          <div className="shadow-xl">
             <GoBoard
               board={board}
               size={puzzle.boardSize}

@@ -400,7 +400,7 @@ export default function PlayPage() {
             )}
 
             {/* Board */}
-            <div className={`w-full shadow-xl rounded-xl overflow-hidden transition-opacity ${boardDisabled ? 'opacity-75 pointer-events-none' : ''}`}>
+            <div className={`w-full shadow-xl transition-opacity ${boardDisabled ? 'opacity-75 pointer-events-none' : ''}`}>
               <GoBoard
                 board={gameState.board}
                 size={gameState.size}

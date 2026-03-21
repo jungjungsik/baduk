@@ -52,7 +52,7 @@ export default function GoBoard({
     const ctx = canvas.getContext('2d')
     if (!ctx) return
 
-    const containerSize = Math.min(container.clientWidth, container.clientHeight)
+    const containerSize = container.clientWidth
     const dpr = window.devicePixelRatio || 1
     canvas.width = containerSize * dpr
     canvas.height = containerSize * dpr
@@ -231,10 +231,10 @@ export default function GoBoard({
   }, [draw])
 
   return (
-    <div ref={containerRef} className="w-full aspect-square">
+    <div ref={containerRef} className="w-full aspect-square rounded-xl overflow-hidden">
       <canvas
         ref={canvasRef}
-        className="rounded-xl cursor-pointer"
+        className="block cursor-pointer"
         style={{ touchAction: 'none' }}
         onClick={(e) => handleClick(e.clientX, e.clientY)}
         onTouchEnd={(e) => {
