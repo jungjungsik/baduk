@@ -1,0 +1,33 @@
+{
+  "name": "heukbaek",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@tensorflow/tfjs": "^4.22.0",
+    "@tensorflow/tfjs-backend-wasm": "^4.22.0",
+    "@tensorflow/tfjs-backend-webgpu": "^4.22.0",
+    "@types/pako": "^2.0.4",
+    "next": "^15.5.14",
+    "pako": "^2.1.0",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "zustand": "^5.0.12"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.2.2",
+    "@types/node": "^25.5.0",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "eslint": "^9.39.4",
+    "eslint-config-next": "^16.2.1",
+    "postcss": "^8.5.8",
+    "tailwindcss": "^4.2.2",
+    "typescript": "^5.9.3"
+  }
+}

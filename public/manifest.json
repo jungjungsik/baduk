@@ -1,0 +1,22 @@
+{
+  "name": "흑백",
+  "short_name": "흑백",
+  "description": "교육용 바둑 앱 - 배우고, 두고, 성장하다",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fffcf7",
+  "theme_color": "#fffcf7",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

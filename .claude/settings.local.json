@@ -1,0 +1,40 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(taskkill /F /IM node.exe)",
+      "Bash(cmd /c \"taskkill /F /IM node.exe\")",
+      "Bash(cmd /c \"taskkill /F /IM node.exe && echo KILLED\" 2>&1)",
+      "Bash(cmd /c \"wmic process where name='node.exe' delete\" 2>&1)",
+      "Bash(powershell -Command \"Get-Process node -ErrorAction SilentlyContinue | Stop-Process -Force; Write-Host 'done'\" 2>&1)",
+      "Bash(cmd /c \"npx kill-port 3000 3001 2>nul & echo done\")",
+      "Bash(cmd /c \"netstat -ano | findstr :3000\")",
+      "Bash(powershell -Command \"Get-Process node -ErrorAction SilentlyContinue | Stop-Process -Force; Write-Host 'Node processes killed'\")",
+      "Bash(npx tsc:*)",
+      "Bash(npm run:*)",
+      "WebSearch",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:forums.online-go.com)",
+      "WebFetch(domain:katagotraining.org)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "WebFetch(domain:aki65.github.io)",
+      "WebFetch(domain:d3dndmfyhecmj0.cloudfront.net)",
+      "WebFetch(domain:katagoarchive.org)",
+      "Bash(curl -fsSL https://raw.githubusercontent.com/modu-ai/moai-adk/main/install.sh)",
+      "Bash(bash)",
+      "Bash(powershell.exe -Command \"irm https://raw.githubusercontent.com/modu-ai/moai-adk/main/install.ps1 | iex\" 2>&1)",
+      "Bash(powershell.exe -Command \"C:\\\\Users\\\\JungsikJung\\\\AppData\\\\Local\\\\Programs\\\\moai\\\\moai.exe version\" 2>&1)",
+      "Bash(gh api:*)",
+      "Bash(curl:*)",
+      "Bash(cd:*)",
+      "Bash(npm install:*)",
+      "Bash(echo \"EXIT CODE: $?\")",
+      "Bash(npx next:*)",
+      "Bash(node:*)",
+      "Bash(gh repo:*)",
+      "Bash(git init:*)",
+      "Bash(git config:*)",
+      "Bash(git remote:*)",
+      "Bash(git add:*)"
+    ]
+  }
+}
