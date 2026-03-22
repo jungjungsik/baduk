@@ -1,5 +1,5 @@
 export type Color = 'black' | 'white' | 'empty'
-export type BoardSize = 9 | 13 | 19
+export type BoardSize = 9 | 13 | 15 | 19
 
 export interface Position {
   row: number

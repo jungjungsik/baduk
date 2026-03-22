@@ -11,6 +11,7 @@ interface GoBoardProps {
   onIntersectionClick?: (pos: Position) => void
   disabled?: boolean
   highlightPositions?: Position[]  // 사활 퍼즐 힌트용
+  winLine?: Position[]  // 오목 승리 라인 하이라이트
 }
 
 // 보드 크기별 성점 위치
@@ -24,6 +25,11 @@ const STAR_POINTS: Record<BoardSize, Position[]> = {
     { row: 3, col: 3 }, { row: 3, col: 9 },
     { row: 6, col: 6 },
     { row: 9, col: 3 }, { row: 9, col: 9 },
+  ],
+  15: [
+    { row: 3, col: 3 }, { row: 3, col: 11 },
+    { row: 7, col: 7 },
+    { row: 11, col: 3 }, { row: 11, col: 11 },
   ],
   19: [
     { row: 3, col: 3 }, { row: 3, col: 9 }, { row: 3, col: 15 },
@@ -40,6 +46,7 @@ export default function GoBoard({
   onIntersectionClick,
   disabled = false,
   highlightPositions = [],
+  winLine = [],
 }: GoBoardProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const containerRef = useRef<HTMLDivElement>(null)
@@ -194,7 +201,17 @@ export default function GoBoard({
       ctx.fill()
     }
 
-  }, [board, size, lastMove, koPoint, highlightPositions])
+    // 오목 승리 라인 하이라이트
+    for (const pos of winLine) {
+      const x = padding + pos.col * gridSize
+      const y = padding + pos.row * gridSize
+      ctx.fillStyle = 'rgba(255, 200, 0, 0.55)'
+      ctx.beginPath()
+      ctx.arc(x, y, stoneRadius * 0.55, 0, Math.PI * 2)
+      ctx.fill()
+    }
+
+  }, [board, size, lastMove, koPoint, highlightPositions, winLine])
 
   // 클릭/터치 이벤트 핸들러
   const handleClick = useCallback((clientX: number, clientY: number) => {

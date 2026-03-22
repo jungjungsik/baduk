@@ -19,7 +19,9 @@ export default function BottomNav() {
       {/* 모바일: 하단 고정 네비게이션 */}
       <nav className="lg:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-2 backdrop-blur-xl rounded-t-3xl shadow-[0_-4px_24px_rgba(56,56,49,0.06)]" style={{ backgroundColor: 'rgba(255,252,247,0.85)' }}>
         {NAV_ITEMS.map((item) => {
-          const isActive = pathname === item.href
+          const isActive = item.href === '/play'
+            ? pathname.startsWith('/play')
+            : pathname === item.href
           return (
             <Link
               key={item.href}
@@ -51,7 +53,9 @@ export default function BottomNav() {
 
         {/* 네비게이션 아이템 */}
         {NAV_ITEMS.map((item) => {
-          const isActive = pathname === item.href
+          const isActive = item.href === '/play'
+            ? pathname.startsWith('/play')
+            : pathname === item.href
           return (
             <Link
               key={item.href}
