@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback, useRef } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
-import { signInWithGoogle, signOut, onAuthChanged } from '@/lib/firebase/auth'
+import { signInWithGoogle, signOut, onAuthChanged, handleRedirectResult } from '@/lib/firebase/auth'
 import { createRoom, joinRoom, subscribeRoom } from '@/lib/firebase/roomService'
 import { useOnlineStore } from '@/lib/store/onlineStore'
 import { BoardSize } from '@/lib/go-engine/types'
@@ -17,12 +17,11 @@ function AuthForm() {
     setLoading(true)
     try {
       await signInWithGoogle()
+      // 리다이렉트 후 페이지가 새로고침되므로 여기 이후 코드는 실행 안 됨
     } catch (err: unknown) {
       const firebaseError = err as { code?: string }
-      if (firebaseError.code !== 'auth/popup-closed-by-user') {
-        setError('로그인에 실패했습니다. 다시 시도해주세요.')
-      }
-    } finally {
+      console.error('Google 로그인 오류:', firebaseError)
+      setError('로그인에 실패했습니다. 다시 시도해주세요.')
       setLoading(false)
     }
   }
@@ -294,6 +293,9 @@ export default function OnlinePage() {
   const [authLoading, setAuthLoading] = useState(true)
 
   useEffect(() => {
+    // 리다이렉트 로그인 결과 처리
+    handleRedirectResult().catch(console.error)
+
     const unsubscribe = onAuthChanged((firebaseUser) => {
       setUser(firebaseUser)
       setAuthLoading(false)
