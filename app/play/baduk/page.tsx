@@ -377,12 +377,12 @@ export default function PlayPage() {
         </div>
       </header>
 
-      <div className="max-w-lg lg:max-w-4xl mx-auto px-4 py-4">
-        <div className="lg:grid lg:grid-cols-2 lg:gap-8 space-y-4 lg:space-y-0">
+      <div className="max-w-lg lg:max-w-4xl mx-auto lg:px-4 py-2 lg:py-4 pb-28 lg:pb-4">
+        <div className="lg:grid lg:grid-cols-2 lg:gap-8 space-y-2 lg:space-y-0">
           {/* Left: board area */}
-          <div className="space-y-4">
+          <div className="space-y-2 lg:space-y-4">
             {/* Capture counts */}
-            <div className="flex justify-between text-sm">
+            <div className="flex justify-between text-sm px-3 lg:px-0">
               <div className="flex items-center gap-2">
                 <div className="w-4 h-4 rounded-full bg-on-surface" />
                 <span className="text-on-surface-variant">잡힌 백돌:</span>
@@ -397,12 +397,12 @@ export default function PlayPage() {
 
             {/* Error message */}
             {error && (
-              <div className="bg-error/10 border border-error/30 rounded-xl px-4 py-2.5 text-error text-sm font-medium text-center">
+              <div className="mx-3 lg:mx-0 bg-error/10 border border-error/30 rounded-xl px-4 py-2.5 text-error text-sm font-medium text-center">
                 {error}
               </div>
             )}
 
-            {/* Board */}
+            {/* Board — full width on mobile */}
             <div className={`w-full shadow-xl transition-opacity ${boardDisabled ? 'opacity-75 pointer-events-none' : ''}`}>
               <GoBoard
                 board={gameState.board}
@@ -414,18 +414,18 @@ export default function PlayPage() {
             </div>
 
             {/* Control buttons */}
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-2 gap-3 px-3 lg:px-0">
               <button
                 onClick={handlePass}
                 disabled={gameMode === 'ai' && (isAIThinking || gameState.currentTurn !== 'black')}
-                className="py-3.5 bg-secondary-container text-on-secondary-container rounded-xl font-bold text-sm flex items-center justify-center gap-2 active:scale-95 transition-transform disabled:opacity-50 disabled:cursor-not-allowed"
+                className="py-3 bg-secondary-container text-on-secondary-container rounded-xl font-bold text-sm flex items-center justify-center gap-2 active:scale-95 transition-transform disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 <span className="material-symbols-outlined text-lg">front_hand</span>
                 패스
               </button>
               <button
                 onClick={handleReset}
-                className="py-3.5 bg-surface-container-high text-on-surface rounded-xl font-bold text-sm flex items-center justify-center gap-2 active:scale-95 transition-transform"
+                className="py-3 bg-surface-container-high text-on-surface rounded-xl font-bold text-sm flex items-center justify-center gap-2 active:scale-95 transition-transform"
               >
                 <span className="material-symbols-outlined text-lg">restart_alt</span>
                 포기

@@ -326,18 +326,18 @@ export default function OmokPage() {
         </div>
       </header>
 
-      <div className="max-w-lg lg:max-w-4xl mx-auto px-4 py-4">
-        <div className="lg:grid lg:grid-cols-2 lg:gap-8 space-y-4 lg:space-y-0">
+      <div className="max-w-lg lg:max-w-4xl mx-auto lg:px-4 py-2 lg:py-4 pb-28 lg:pb-4">
+        <div className="lg:grid lg:grid-cols-2 lg:gap-8 space-y-2 lg:space-y-0">
           {/* Left: board area */}
-          <div className="space-y-4">
+          <div className="space-y-2 lg:space-y-4">
             {/* Error message */}
             {error && (
-              <div className="bg-error/10 border border-error/30 rounded-xl px-4 py-2.5 text-error text-sm font-medium text-center">
+              <div className="mx-3 lg:mx-0 bg-error/10 border border-error/30 rounded-xl px-4 py-2.5 text-error text-sm font-medium text-center">
                 {error}
               </div>
             )}
 
-            {/* Board */}
+            {/* Board — full width on mobile */}
             <div className={`w-full shadow-xl transition-opacity ${boardDisabled ? 'opacity-75 pointer-events-none' : ''}`}>
               <GoBoard
                 board={gameState.board}
@@ -350,13 +350,15 @@ export default function OmokPage() {
             </div>
 
             {/* Control button */}
-            <button
-              onClick={handleReset}
-              className="w-full py-3.5 bg-surface-container-high text-on-surface rounded-xl font-bold text-sm flex items-center justify-center gap-2 active:scale-95 transition-transform"
-            >
-              <span className="material-symbols-outlined text-lg">restart_alt</span>
-              포기
-            </button>
+            <div className="px-3 lg:px-0">
+              <button
+                onClick={handleReset}
+                className="w-full py-3 bg-surface-container-high text-on-surface rounded-xl font-bold text-sm flex items-center justify-center gap-2 active:scale-95 transition-transform"
+              >
+                <span className="material-symbols-outlined text-lg">restart_alt</span>
+                포기
+              </button>
+            </div>
           </div>
 
           {/* Right: move history */}

@@ -109,30 +109,30 @@ export default function PuzzleSolvePage({ params }: { params: Promise<{ id: stri
         </div>
       </header>
 
-      <div className="max-w-lg lg:max-w-3xl mx-auto px-4 py-5 lg:grid lg:grid-cols-2 lg:gap-8">
+      <div className="max-w-lg lg:max-w-3xl mx-auto lg:px-4 py-3 lg:py-5 pb-28 lg:pb-5 lg:grid lg:grid-cols-2 lg:gap-8">
         {/* 왼쪽: 바둑판 */}
-        <div className="space-y-4">
+        <div className="space-y-2 lg:space-y-4">
           {/* 상태 메시지 */}
           {status === 'correct' && (
-            <div className="rounded-xl px-4 py-3 text-center font-bold text-sm"
+            <div className="mx-3 lg:mx-0 rounded-xl px-4 py-3 text-center font-bold text-sm"
               style={{ backgroundColor: '#f4e3ce', color: '#5d5242' }}>
               정답입니다! +{puzzle.xpReward} XP 획득
             </div>
           )}
           {status === 'wrong' && (
-            <div className="rounded-xl px-4 py-3 text-center font-bold text-sm"
+            <div className="mx-3 lg:mx-0 rounded-xl px-4 py-3 text-center font-bold text-sm"
               style={{ backgroundColor: '#fee2e2', color: '#a54731' }}>
               틀렸습니다. 다시 시도하세요.
             </div>
           )}
           {status === 'playing' && (
-            <div className="rounded-xl px-4 py-3 text-center text-sm font-medium"
+            <div className="mx-3 lg:mx-0 rounded-xl px-4 py-3 text-center text-sm font-medium"
               style={{ backgroundColor: '#f6f4ec', color: '#65655c' }}>
               {puzzle.turn === 'black' ? '흑' : '백'}의 차례 -- {puzzle.objectiveLabel}하세요
             </div>
           )}
 
-          {/* 바둑판 */}
+          {/* 바둑판 — full width on mobile */}
           <div className="shadow-xl">
             <GoBoard
               board={board}
@@ -145,10 +145,10 @@ export default function PuzzleSolvePage({ params }: { params: Promise<{ id: stri
           </div>
 
           {/* 컨트롤 버튼 */}
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-2 gap-3 px-3 lg:px-0">
             <button
               onClick={handleReset}
-              className="py-3.5 rounded-xl font-bold text-sm flex items-center justify-center gap-2 active:scale-95 transition-transform"
+              className="py-3 rounded-xl font-bold text-sm flex items-center justify-center gap-2 active:scale-95 transition-transform"
               style={{ backgroundColor: '#e8e2d6', color: '#555248' }}
             >
               <span className="material-symbols-outlined text-lg">undo</span>
@@ -156,7 +156,7 @@ export default function PuzzleSolvePage({ params }: { params: Promise<{ id: stri
             </button>
             <button
               onClick={() => setShowHint(!showHint)}
-              className="py-3.5 rounded-xl font-bold text-sm flex items-center justify-center gap-2 active:scale-95 transition-transform"
+              className="py-3 rounded-xl font-bold text-sm flex items-center justify-center gap-2 active:scale-95 transition-transform"
               style={{ backgroundColor: '#f4e3ce', color: '#5d5242' }}
             >
               <span className="material-symbols-outlined text-lg">lightbulb</span>
@@ -166,7 +166,7 @@ export default function PuzzleSolvePage({ params }: { params: Promise<{ id: stri
         </div>
 
         {/* 오른쪽: 문제 설명 + 다음 문제 */}
-        <div className="space-y-4 mt-4 lg:mt-0">
+        <div className="space-y-4 mt-4 px-3 lg:px-0 lg:mt-0">
           {/* 문제 설명 */}
           <div className="rounded-2xl p-5 space-y-3" style={{ backgroundColor: '#f6f4ec' }}>
             <div className="flex items-center gap-2">
