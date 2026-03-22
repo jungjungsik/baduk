@@ -34,7 +34,14 @@
       "Bash(git init:*)",
       "Bash(git config:*)",
       "Bash(git remote:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git rm:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "mcp__claude_ai_Vercel__deploy_to_vercel",
+      "Bash(vercel:*)",
+      "mcp__plugin_oh-my-claudecode_omc-tools__lsp_diagnostics",
+      "WebFetch(domain:firebase.google.com)"
     ]
   }
 }

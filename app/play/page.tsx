@@ -58,6 +58,16 @@ export default function PlayPage() {
               <p className="text-xs text-on-surface-variant mt-0.5">돌을 뒤집어 더 많이 차지</p>
             </div>
           </Link>
+
+          <Link href="/online" className="flex flex-col items-center gap-3 p-5 rounded-2xl border-2 border-outline-variant/30 bg-surface-container-low hover:border-outline-variant hover:bg-surface-container transition-all active:scale-[0.97]">
+            <div className="w-12 h-12 rounded-2xl flex items-center justify-center" style={{ backgroundColor: '#e0f2fe' }}>
+              <span className="material-symbols-outlined text-2xl" style={{ color: '#0369a1' }}>wifi</span>
+            </div>
+            <div className="text-center">
+              <p className="font-headline font-bold text-sm">온라인 대국</p>
+              <p className="text-xs text-on-surface-variant mt-0.5">친구와 실시간 바둑</p>
+            </div>
+          </Link>
         </div>
       </div>
     </div>
